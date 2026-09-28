@@ -1,15 +1,16 @@
 package:
   name: ros-jazzy-rosidl-runtime-rs
-  version: "0.6.0"
+  version: "0.6.1"
 
 # Base Rust runtime support crate for ros2-rust (rosidl_runtime_rs).
 # OSS (Apache-2.0). First of the 3 ros2-rust packages; rclrs depends on it.
-# Inputs match the #310 spike pins (rosidl_runtime_rs @ v0.6.0).
+# Pinned at v0.6.1. 0.6.1 adds From<Sequence<T>> for Vec<T>, which the RoboStack
+# jazzy_21 message crates (rosidl_generator_rs 0.5.0) call. 0.6.0 lacks it.
 
 source:
   # NOTE: rattler-build's `git:` source with target_directory checked out an
   # empty tree here; the release tarball populates reliably (as robin's recipe does).
-  - url: https://github.com/ros2-rust/rosidl_runtime_rs/archive/refs/tags/v0.6.0.tar.gz
+  - url: https://github.com/ros2-rust/rosidl_runtime_rs/archive/refs/tags/v0.6.1.tar.gz
     target_directory: src/rosidl_runtime_rs
 
 build:
